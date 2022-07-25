@@ -1,8 +1,19 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { getAllTickers } from '../utils/tickers';
 
-export default function Home() {
+export async function getStaticProps() {
+  const allTickers = await getAllTickers();
+  return {
+    props: {
+      allTickers,
+    },
+  };
+}
+
+
+export default function Home({ allTickers }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,6 +26,11 @@ export default function Home() {
         <h1 className={styles.title}>
           Dio <a href="https://github.com/PalmeseMattia">Cane</a>
         </h1>
+        <ul>
+        {allTickers.map(tick =>(
+          <li>{tick.name}</li>
+        ))}
+        </ul>
       </main>
     </div>
         
