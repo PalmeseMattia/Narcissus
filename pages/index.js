@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { getAllTickers } from '../utils/tickers';
 
@@ -28,7 +29,11 @@ export default function Home({ allTickers }) {
         </h1>
         <ul>
         {allTickers.map(tick =>(
-          <li>{tick.name}</li>
+          <li key={tick.name}>
+            <Link href={`/tickers/${tick.name}`}>
+              <a>{tick.name}</a>
+            </Link>
+          </li>
         ))}
         </ul>
       </main>
