@@ -24,7 +24,7 @@ export default function Home({ allTickers }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Dio <a href="https://github.com/PalmeseMattia">Cane</a>
+          Check crypto stuff with <a href="https://github.com/PalmeseMattia">Narcissus</a>!
         </h1>
         <ul>
         {allTickers.map(tick =>(
